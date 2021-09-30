@@ -22,7 +22,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase
       var pdbn = document.getElementById('playerdatabasename');
 
       function InsertData(){
-        if(nameInput !== ""){
+        if(nameInput.value !== ""){
           set(ref(db, "accounts/"+ nameInput.value),{
             Nick: nameInput.value
           })
