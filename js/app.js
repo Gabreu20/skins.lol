@@ -22,19 +22,19 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase
       var pdbn = document.getElementById('playerdatabasename');
 
       function InsertData(){
-        if(nameInput != ""){
+        if(nameInput !== ""){
           set(ref(db, "accounts/"+ nameInput.value),{
             Nick: nameInput.value
           })
           .then(()=>{
             alert("Sucesso");
-         })
+          })
           .catch((error)=>{
-            alert("Não deu, erro"+error);
-          });
+           alert("Não deu, erro"+error);
+         });
         }
         else{
-          alert("O nick precisa ter pelo menos 6 caracteres");
+          alert("O Nick não pode ser vazio");
         }
       }
 
