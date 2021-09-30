@@ -18,16 +18,35 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase
       
       var nameInput = document.getElementById('nameInput');
       var addButton = document.getElementById('addButton');
+      var findButton = document.getElementById('findButton');
+      var pdbn = document.getElementById('playerdatabasename');
 
       function InsertData(){
           set(ref(db, "accounts/"+ nameInput.value),{
-              Nick: nameInput.value,
+              Nick: nameInput.value
           })
           .then(()=>{
-            alert("data stored successfully");
+            alert("Sucesso");
           })
           .catch((error)=>{
-            alert("unsuccessful, error"+error);
+            alert("Não deu, erro"+error);
           });
       }
+
+      function SelectData(){
+        const dbref = ref(db);
+
+        get(child(dbref,"accounts/"+ nameInput.value)).then((snapshot)=> {
+          if(snapshot.exists()){
+            pdbn.value = snapshot.val().Nick;
+          }
+          else{
+            alert("Não encontramos esse jogador")
+          }
+        })
+        .catch((error)=>{
+          alert("Não deu, erro"+error);
+        });        
+      }
+      findButton.addEventListener('click', SelectData);
       addButton.addEventListener('click', InsertData);
