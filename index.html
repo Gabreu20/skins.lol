@@ -1,17 +1,26 @@
 <html>
-   <head>
-    <title>Skins.lol</title>
 
-   </head> 
-   <body>
-     <p>DATA BASE TEST</p>
-      <label>Nick</label> <input id="nameInput" type="text">
-      <label>DB</label> <input id="playerdatabasename" type="text">
-      <hr>
-      <button id="addButton">CREATE ACCOUNT</button>
-      <button id="findButton">FIND PLAYER</button>
+<head>
+  <title>Skins.lol</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script src="js/jsonReader.js"></script>
+  <script src="js/grid.js" defer></script>
+</head>
 
-    <script type="module" src="js/app.js"></script>
+<body>
+  <p>DATA BASE TEST</p>
+  <label>Nick</label> <input id="nameInput" type="text">
+  <label>DB</label> <input id="playerdatabasename" type="text">
+  <hr>
+  <button id="addButton">CREATE ACCOUNT</button>
+  <button id="findButton">FIND PLAYER</button>
 
-   </body>
+  <div id="champions" class="champions-grid">
+    
+  </div>
+
+</body>
+
 </html>

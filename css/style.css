@@ -1,0 +1,28 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.champions-grid{
+    position:absolute;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 110px));
+    column-gap:  5px;
+    row-gap:  10px;
+}
+
+.square-champ{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}
