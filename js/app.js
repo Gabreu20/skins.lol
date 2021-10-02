@@ -40,7 +40,7 @@ function login() {
       const currentUser = user.displayName;
       sessionStorage.setItem("currentUser", currentUser);
       console.log(currentUser);
-      window.location.href = "../index.html";
+      window.location.href = "./index.html";
     })
     .catch((error) => {
       const errorCode = error.code;
