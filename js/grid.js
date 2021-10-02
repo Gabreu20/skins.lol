@@ -1,4 +1,4 @@
-jQuery.getJSON('http://ddragon.leagueoflegends.com/cdn/11.19.1/data/en_US/champion.json', function (data) {
+jQuery.getJSON('https://ddragon.leagueoflegends.com/cdn/11.19.1/data/en_US/champion.json', function (data) {
     var count = Object.keys(data.data).length;
     const champData = Object.keys(data.data);
     for (let i = 0; i < count; i++) {
