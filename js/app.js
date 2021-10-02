@@ -20,6 +20,8 @@ const auth = getAuth(app);
 const db = getDatabase(app);
 
 var currentuser = sessionStorage.getItem('currentUser');
+if(currentuser !== null)
+  document.getElementById("userName").innerText = currentuser;
 console.log(currentuser);
 
 var nameInput = document.getElementById('user');
@@ -78,7 +80,7 @@ function InsertData() {
                   //Skins: selectedSkins
                 })
                 const user = userCredential.user;
-                console.log("Criou");
+                console.log("Criou");                
                 console.log(user);
               })
               .catch((error) => {
