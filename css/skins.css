@@ -1,0 +1,82 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: 05131C;
+    padding-bottom: 100px;
+}
+.header{
+    background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg);
+    background-size: 100%;
+    background-position:0px -150px;
+    background-color:rgba(0, 0, 0, 0.5);
+    padding-bottom: 50px;
+    padding-top: 50px;
+    margin-bottom: 30px;
+    border-bottom: 4px solid #02080B;
+}
+.skins-handler{
+    position:absolute;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 110px));
+    column-gap:  5px;
+    row-gap:  10px;
+    padding-bottom: 50px;
+}
+.champ-name{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #CDB780;
+    font-family: serif;
+    font-size: 50px;
+    margin-bottom: -5px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 10px;
+}
+.champ-description{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #9F9A8B;
+    font-family:sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 150px;
+}
+.saveBTN{
+    margin-left: 150px;
+    text-transform: uppercase;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #CDB780;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+ }
+ .container{
+    width: 100%;
+    background-color: #CDB780;
+ }

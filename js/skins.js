@@ -4,7 +4,11 @@ setTimeout(setSelectedSkins, 100);
 
 function setSelectedSkins(){
     for(let i = 0; i < skinArray.length; i++){
-        document.getElementById(skinArray[i]).style.opacity = 0.5;
+        var exists = document.getElementById(skinArray[i]);
+        if(exists){
+            document.getElementById(skinArray[i]).style.opacity = 1;
+            document.getElementById(skinArray[i]).style.border = "4px solid #4CAF50";
+        }
     }    
 }
 
@@ -25,7 +29,8 @@ function addSkin(id) {
     }
     for(let i = 0; i < skinArray.length; i++){
         if(id === skinArray[i]){
-            document.getElementById(skinArray[i]).style.opacity = 1;
+            document.getElementById(skinArray[i]).style.opacity = 0.6;
+            document.getElementById(skinArray[i]).style.border = "4px solid black";
             const index = skinArray.indexOf(id);
             if (index > -1) {
                 skinArray.splice(index, 1);
@@ -34,7 +39,8 @@ function addSkin(id) {
         }
     }
     if (canAdd){
-        document.getElementById(id).style.opacity = 0.5;
+        document.getElementById(id).style.opacity = 1;
+        document.getElementById(id).style.border = "4px solid #4CAF50";
         skinArray.push(id)
     }
     console.log(skinArray);
