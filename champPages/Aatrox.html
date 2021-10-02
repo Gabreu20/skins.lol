@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script src="../js/skins.js"></script>
+        <script>
+            var sessionString = sessionStorage.getItem('skinArray');
+            var selectedSkins = JSON.parse(sessionString);
+            if(selectedSkins === null){
+                selectedSkins = [];
+            }
+            skinArray = selectedSkins;
+            console.log(skinArray);
+          </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>Aatrox</title>
+        <script src="../js/getSkins.js"></script>
+    </head>
+    <body>
+        <div id="Skins">
+
+        </div>
+        <button id="saveSkins" onClick="save()">Salvar</button>
+    </body>
+</html>

@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
 import { getDatabase, ref, set, get, child, update, remove }
   from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile }
+  from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
@@ -14,29 +16,82 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const db = getDatabase(app);
 
-var nameInput = document.getElementById('nameInput');
-var addButton = document.getElementById('addButton');
-var findButton = document.getElementById('findButton');
-var pdbn = document.getElementById('playerdatabasename');
+var currentuser = sessionStorage.getItem('currentUser');
+console.log(currentuser);
 
+var nameInput = document.getElementById('user');
+var addButton = document.getElementById('signup');
+var loginBtn = document.getElementById('login');
+var saveBtn = document.getElementById('salvar');
+
+
+//fazer login na conta
+function login() {
+  const emaill = document.getElementById("emaillogin").value;
+  const passwordl = document.getElementById("passlogin").value;
+
+  signInWithEmailAndPassword(auth, emaill, passwordl)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      const currentUser = user.displayName;
+      sessionStorage.setItem("currentUser", currentUser);
+      console.log(currentUser);
+      window.location.href = "../index.html";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode + errorMessage);
+    });
+}
+
+//salvar dados na DB
 function InsertData() {
   if (nameInput.value !== "") {
     const dbref = ref(db);
     get(child(dbref, "accounts/" + nameInput.value)).then((snapshot) => {
       if (!snapshot.exists()) {
         set(ref(db, "accounts/" + nameInput.value), {
-          Nick: nameInput.value
+          //Nick: nameInput.value
+          //Skins: selectedSkins
         })
           .then(() => {
-            alert("Sucesso");
+            //criar conta
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("pass").value;
+            const userlogin = document.getElementById("user").value;
+
+
+            createUserWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                // Signed in
+                updateProfile(auth.currentUser, {
+                  displayName: userlogin
+                })
+                alert("Sucesso");
+                set(ref(db, "accounts/" + nameInput.value), {
+                  Nick: nameInput.value
+                  //Skins: selectedSkins
+                })
+                const user = userCredential.user;
+                console.log("Criou");
+                console.log(user);
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode + errorMessage);
+              });
           })
           .catch((error) => {
             alert("Não deu, erro" + error);
           });
       }
-      else{
+      else {
         alert("Nome de Usuário já selecionado, tente novamente!");
       }
     })
@@ -46,20 +101,53 @@ function InsertData() {
   }
 }
 
-function SelectData() {
+var logged = "";
+var loggedVerify = sessionStorage.getItem('logged');
+var loggedVerified = JSON.parse(loggedVerify);
+logged = loggedVerified;
+console.log(logged);
+//Carregar dados da DB
+if (currentuser !== null && !logged) {
   const dbreff = ref(db);
 
-  get(child(dbreff, "accounts/" + nameInput.value)).then((snapshot) => {
+  get(child(dbreff, "accounts/" + currentuser)).then((snapshot) => {
     if (snapshot.exists()) {
-      pdbn.value = snapshot.val().Nick;
+      skinArray = snapshot.val().Skins;
+      logged = true;
+      sessionStorage.setItem("logged", logged);
+      sessionStorage.setItem('skinArray', JSON.stringify(skinArray));
+      console.log(skinArray);
     }
     else {
       alert("Não encontramos esse jogador")
     }
   })
     .catch((error) => {
-      alert("Não deu, erro" + error);
+      
     });
 }
-findButton.addEventListener('click', SelectData);
-addButton.addEventListener('click', InsertData);
+
+//Atualizar dados da DB
+function UpdateData() {
+  update(ref(db, "accounts/" + currentuser), {
+    Skins: selectedSkins
+  })
+    .then(() => {
+      alert("Salvo!")
+    })
+    .catch((error) => {
+      alert("Erro" + error);
+    });
+}
+
+//listener dos botoes
+//findButton.addEventListener('click', SelectData);
+if (loginBtn !== null) {
+  loginBtn.addEventListener('click', login);
+}
+if (addButton !== null) {
+  addButton.addEventListener('click', InsertData);
+}
+if (saveBtn !== null) {
+  saveBtn.addEventListener('click', UpdateData);
+}
