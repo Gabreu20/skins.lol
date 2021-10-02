@@ -3,7 +3,7 @@ jQuery.getJSON('https://ddragon.leagueoflegends.com/cdn/11.19.1/data/en_US/champ
     var count = Object.keys(data.data[champName].skins).length;
     for (let i = 1; i <= count; i++) {
         const str = '<input type="image" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champName + '_' + data.data[champName].skins[i].num + 
-        '.jpg" class="square-champ" id="'+ champName + '_' + data.data[champName].skins[i].num +'" onClick="addSkin(this.id)"/>';
+        '.jpg" class="square-champ" id="'+ champName + '_' + data.data[champName].skins[i].num +'" onClick="addSkin(this.id)" style="opacity: 1;"/>';
         document.getElementById("Skins").insertAdjacentHTML('beforeend', str);        
         console.log(data.data[champName].skins[i]);
     }

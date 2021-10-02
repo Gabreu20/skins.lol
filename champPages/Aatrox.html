@@ -1,5 +1,8 @@
 <html>
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>Aatrox</title>
+        <script src="../js/getSkins.js"></script>
         <script src="../js/skins.js"></script>
         <script>
             var sessionString = sessionStorage.getItem('skinArray');
@@ -7,12 +10,9 @@
             if(selectedSkins === null){
                 selectedSkins = [];
             }
-            skinArray = selectedSkins;
-            console.log(skinArray);
+            skinArray = selectedSkins; 
+            console.log(skinArray);    
           </script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <title>Aatrox</title>
-        <script src="../js/getSkins.js"></script>
     </head>
     <body>
         <div id="Skins">
