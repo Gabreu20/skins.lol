@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Campeões</title>
+    <script>
+        var sessionString = sessionStorage.getItem('skinArray');
+        var selectedSkins = JSON.parse(sessionString);
+        console.log(selectedSkins);
+    </script>
+    <script src="js/skins.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/champs.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/skinMatch.js"></script>
+    <script type="module" src="js/app.js"></script>
+    <script src="js/grid.js" defer></script>
+    <script src="js/getSkins.js"></script>
+</head>
+
+<body>
+    <div>
+        <button class="saveBTN" onClick="window.location.href ='./index.html';">Página Inicial</button>
+    </div>
+    <div id="champions" class="champions-grid">
+
+    </div>
+    <div class="footer">
+        <p>Skins.lol</p>
+    </div>
+</body>
+
+</html>

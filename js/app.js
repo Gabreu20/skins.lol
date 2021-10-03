@@ -20,7 +20,7 @@ const auth = getAuth(app);
 const db = getDatabase(app);
 
 var currentuser = sessionStorage.getItem('currentUser');
-if(currentuser !== null)
+if (currentuser !== null)
   document.getElementById("userName").innerText = currentuser;
 console.log(currentuser);
 
@@ -28,6 +28,7 @@ var nameInput = document.getElementById('user');
 var addButton = document.getElementById('signup');
 var loginBtn = document.getElementById('login');
 var saveBtn = document.getElementById('salvar');
+var testeBTN = document.getElementById('teste');
 
 
 //fazer login na conta
@@ -80,8 +81,9 @@ function InsertData() {
                   //Skins: selectedSkins
                 })
                 const user = userCredential.user;
-                console.log("Criou");                
+                console.log("Criou");
                 console.log(user);
+                window.location.href ='./login.html';
               })
               .catch((error) => {
                 const errorCode = error.code;
@@ -121,11 +123,43 @@ if (currentuser !== null && !logged) {
       console.log(skinArray);
     }
     else {
-      alert("Não encontramos esse jogador")
+      alert("Não encontramos esse jogador");
     }
   })
     .catch((error) => {
-      
+
+    });
+}
+
+function getUserSkins() {
+  //Carregar dados da DB
+
+  const dbreff = ref(db);
+
+  var time = document.getElementById("time");
+  console.log(time.value);
+
+  get(child(dbreff, "accounts/" + time.value)).then((snapshot) => {
+    if (snapshot.exists()) {
+      var usuario = time.value;
+      dbArray = snapshot.val().Skins;
+      var sessionString = sessionStorage.getItem('skinArray');
+      var selectedSkins = JSON.parse(sessionString);
+      if (selectedSkins === null) {
+        selectedSkins = [];
+      }
+      skinArray = selectedSkins;
+      console.log(skinArray + " Minhas Skins");
+      console.log(dbArray + " Skins de " + time.value);
+      console.log(skinArray.length);
+      matchSkins(usuario);
+    }
+    else {
+      alert("Não encontramos esse jogador");
+    }
+  })
+    .catch((error) => {
+
     });
 }
 
@@ -152,4 +186,7 @@ if (addButton !== null) {
 }
 if (saveBtn !== null) {
   saveBtn.addEventListener('click', UpdateData);
+}
+if (testeBTN !== null) {
+  testeBTN.addEventListener('click', getUserSkins);
 }

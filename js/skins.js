@@ -47,5 +47,5 @@ function addSkin(id) {
 }
 function save() {
     sessionStorage.setItem('skinArray', JSON.stringify(skinArray));
-    window.location.href = "../index.html";
+    window.location.href = "../champion.html";
 }

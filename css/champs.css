@@ -1,0 +1,37 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: 05131C;
+    padding-bottom: 100px;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #CDB780;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+ }
+ .saveBTN{
+     margin-top: 15px;
+    margin-left: 50px;
+    text-transform: uppercase;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
