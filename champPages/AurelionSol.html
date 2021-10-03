@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/skins.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>AurelionSol</title>
+    <script src="../js/getSkins.js"></script>
+    <script src="../js/skins.js"></script>
+    <script>
+        var sessionString = sessionStorage.getItem('skinArray');
+        var selectedSkins = JSON.parse(sessionString);
+        if (selectedSkins === null) {
+            selectedSkins = [];
+        }
+        skinArray = selectedSkins;
+        console.log(skinArray);
+    </script>
+</head>
+
+<body>
+    <div class="header" id="header">
+        <p class="champ-name" id="name">teste</p>
+        <p class="champ-description" id="desc">Darkin Blade</p>
+        <button class="saveBTN" id="saveSkins" onClick="save()">Salvar</button>
+    </div>
+    <div id="Skins" class="skins-handler">
+
+    </div>
+    <div class="footer">
+        <p>Skins.lol</p>
+      </div>
+</body>
+
+</html>

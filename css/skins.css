@@ -37,10 +37,11 @@ body{
     color: #CDB780;
     font-family: serif;
     font-size: 50px;
-    margin-bottom: -5px;
+    margin-bottom: -0px;
     margin-left: 150px;
     margin-right: 150px;
     margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .champ-description{
     text-transform: uppercase;
@@ -50,6 +51,8 @@ body{
     font-size: 20px;
     margin-bottom: 10px;
     margin-left: 150px;
+    margin-right: 150px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .saveBTN{
     margin-left: 150px;
