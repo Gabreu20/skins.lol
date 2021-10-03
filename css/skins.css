@@ -11,9 +11,10 @@ body{
 }
 .header{
     background-image: url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg);
-    background-size: 100%;
-    background-position:0px -150px;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+    background-size: 85%;
+    background-position:450px -130px;
+    background-color:rgba(0, 0, 0, 0.65);
     padding-bottom: 50px;
     padding-top: 50px;
     margin-bottom: 30px;
@@ -41,7 +42,6 @@ body{
     margin-left: 150px;
     margin-right: 150px;
     margin-top: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
 }
 .champ-description{
     text-transform: uppercase;
@@ -52,7 +52,6 @@ body{
     margin-bottom: 10px;
     margin-left: 150px;
     margin-right: 150px;
-    background-color: rgba(0, 0, 0, 0.5);
 }
 .saveBTN{
     margin-left: 150px;
