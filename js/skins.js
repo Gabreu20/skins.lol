@@ -1,5 +1,5 @@
 var skinArray = [];
-setTimeout(setSelectedSkins, 100);
+setTimeout(setSelectedSkins, 500);
 
 
 function setSelectedSkins(){
