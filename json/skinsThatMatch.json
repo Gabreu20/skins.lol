@@ -1,7 +1,12 @@
 {
     "data": {
-        "Aatrox_0":{
-            "0": "Aatrox_11"
-        }
+        "0":[ 
+            "Cho'Gath Terror Noturno",
+            "Aatrox Justiceiro"
+        ],
+        "1":[
+            "Mech Aatrox",
+            "Lux Feiticeira"
+        ]
     }
 }
