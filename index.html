@@ -12,6 +12,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/skinMatch.js"></script>
   <script type="module" src="js/app.js"></script>
+  <script>
+    setTimeout(SetMySkins, 1000);
+  </script>
 </head>
 
 <body>
@@ -19,11 +22,20 @@
   <p id="userName">DATA BASE TEST</p>
   <hr>
   <input id="time">
+  <input id="busca" placeholder="Buscar Campeão">
   <button id="teste">TESTE</button>
   <button onclick="window.location.href ='./login.html'; sessionStorage.clear();">Login</button>
   <button onclick="window.location.href ='./signup.html';">Criar Conta</button>
   <button onclick="window.location.href ='./champion.html';">Campeões</button>
+  <button onclick="searchSkin();">search</button>
   <button id="salvar">Salvar</button>
+  <div id="Skins" class="skins-handler">
+
+  </div>
+  <div id="Matched" class="skins-handler">
+
+  </div>
+
 </body>
 
 </html>

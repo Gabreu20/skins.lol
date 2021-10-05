@@ -15,7 +15,7 @@ function setSkinObjs() {
             var count = Object.keys(data.data[champName].skins).length;
             for (let i = 1; i <= count; i++) {
                 const str = '<input type="image" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champName + '_' + data.data[champName].skins[i].num +
-                    '.jpg" class="square-champ" id="' + data.data[champName].skins[i].name + '" onClick="addSkin(this.id)" style="opacity: 0.6; border: 4px solid black;"/>';
+                    '.jpg" class="square-champ" id="' + data.data[champName].skins[i].name + "|" + champName + '_' + data.data[champName].skins[i].num + '" onClick="addSkin(this.id)" style="opacity: 0.6; border: 4px solid black;"/>';
                 document.getElementById("Skins").insertAdjacentHTML('beforeend', str);
                 console.log(data.data[champName].skins[i]);
             }
