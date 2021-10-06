@@ -50,3 +50,17 @@ body{
     margin-top: 4px;
     margin-bottom: 4px;
 }
+.usersT{
+    border-radius: 6px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: red;
+    display: inline;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 4px;
+    margin-right: 4px;
+}

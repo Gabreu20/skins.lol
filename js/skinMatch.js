@@ -13,7 +13,6 @@ function getRandomArbitrary(min, max) {
 function SelectedSkinToCompare(id) {
     skinToCompare[0] = id;
     console.log(skinToCompare);
-    console.log(document.getElementById(id).focus());
 }
 
 function matchSkins(usuario) {

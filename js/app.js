@@ -28,7 +28,7 @@ var nameInput = document.getElementById('user');
 var addButton = document.getElementById('signup');
 var loginBtn = document.getElementById('login');
 var saveBtn = document.getElementById('salvar');
-var testeBTN = document.getElementById('teste');
+var testeBTN = document.getElementById('match');
 
 
 //fazer login na conta
@@ -83,7 +83,7 @@ function InsertData() {
                 const user = userCredential.user;
                 console.log("Criou");
                 console.log(user);
-                window.location.href ='./login.html';
+                window.location.href = './login.html';
               })
               .catch((error) => {
                 const errorCode = error.code;
@@ -132,35 +132,33 @@ if (currentuser !== null && !logged) {
 }
 
 function getUserSkins() {
-  //Carregar dados da DB
+  for (let i = 0; i < userInTeam.length; i++) {
+    //Carregar dados da DB
+    const dbreff = ref(db);
 
-  const dbreff = ref(db);
-
-  var time = document.getElementById("time");
-  console.log(time.value);
-
-  get(child(dbreff, "accounts/" + time.value)).then((snapshot) => {
-    if (snapshot.exists()) {
-      var usuario = time.value;
-      dbArray = snapshot.val().Skins;
-      var sessionString = sessionStorage.getItem('skinArray');
-      var selectedSkins = JSON.parse(sessionString);
-      if (selectedSkins === null) {
-        selectedSkins = [];
+    get(child(dbreff, "accounts/" + userInTeam[i])).then((snapshot) => {
+      if (snapshot.exists()) {
+        var usuario = userInTeam[i];
+        dbArray = snapshot.val().Skins;
+        var sessionString = sessionStorage.getItem('skinArray');
+        var selectedSkins = JSON.parse(sessionString);
+        if (selectedSkins === null) {
+          selectedSkins = [];
+        }
+        skinArray = selectedSkins;
+        console.log(skinArray + " Minhas Skins");
+        console.log(dbArray + " Skins de " + userInTeam[i]);
+        console.log(skinArray.length);
+        matchSkins(usuario);
       }
-      skinArray = selectedSkins;
-      console.log(skinArray + " Minhas Skins");
-      console.log(dbArray + " Skins de " + time.value);
-      console.log(skinArray.length);
-      matchSkins(usuario);
-    }
-    else {
-      alert("Não encontramos esse jogador");
-    }
-  })
-    .catch((error) => {
+      else {
+        alert("Não encontramos esse jogador");
+      }
+    })
+      .catch((error) => {
 
-    });
+      });
+  }
 }
 
 //Atualizar dados da DB
