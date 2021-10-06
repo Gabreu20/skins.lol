@@ -6,6 +6,7 @@
 body{
     min-height: 100vh;
     overflow-x: hidden;
+    background-color: #05131C;
 }
 
 .champions-grid{
@@ -63,4 +64,37 @@ body{
     padding-bottom: 5px;
     margin-left: 4px;
     margin-right: 4px;
+}
+.add{
+    margin-top: 15px;
+    text-transform: uppercase;
+    background-color: rgb(228, 50, 50);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.addInput{
+    padding: 10px 70px;
+}
+#match{
+    margin-top: 15px;
+    text-transform: uppercase;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
 }

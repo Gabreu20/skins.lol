@@ -1,7 +1,7 @@
 var userInTeam = [];
 function addUser() {
     userInTeam.push(document.getElementById('time').value);
-    var str = '<div onclick="deleteUser(this.id);" class="usersT" id="' + document.getElementById('time').value + '">' + document.getElementById('time').value + ' x ' + '</div>';
+    var str = '<div onclick="deleteUser(this.id);" class="usersT" id="' + document.getElementById('time').value + 'User">' + document.getElementById('time').value + ' x ' + '</div>';
     document.getElementById("usersInTeam").insertAdjacentHTML('beforeend', str);
     console.log(userInTeam);
 }
