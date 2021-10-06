@@ -55,10 +55,10 @@ body{
     color: white;
     font-family: sans-serif;
     font-weight: bold;
-    background-color: red;
+    background-color: rgb(228, 50, 50);
     display: inline;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
     margin-left: 4px;
