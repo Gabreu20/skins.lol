@@ -64,17 +64,26 @@ function SetMySkins() {
 }
 
 function ShowMatchedSkins(usuario) {
-    var b = JSON.stringify(matchedSkins);
-    var champStatsStr = b.split("|");
-    var champStats = champStatsStr[1].split("_");
-    var champs = champStats[1].split('"');
-    console.log(champStats[0]);
-    console.log(champs[0]);
+    if (document.getElementById(usuario) !== null) {
+        var myDiv = document.getElementById(usuario);
+        myDiv.parentNode.removeChild(myDiv);
+    }
 
-    var str = '<input type="image" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champStats[0] + '_' + 
-        champs[0] +'.jpg" class="square-skin" id="teste" onClick="" "/>';
-    document.getElementById("Matched").insertAdjacentHTML('beforeend', str);
-    document.getElementById("pName").innerText = usuario;
+    var namestr = '<div id=' + usuario + '><p>' + usuario + '</p></div>';
+    document.getElementById("Matched").insertAdjacentHTML('beforeend', namestr);
+
+    for (let i = 0; i < matchedSkins.length; i++) {
+        var b = JSON.stringify(matchedSkins[i]);
+        var champStatsStr = b.split("|");
+        var champStats = champStatsStr[1].split("_");
+        var champs = champStats[1].split('"');
+        console.log(champStats);
+        console.log(champs);
+
+        var str = '<input type="image" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champStats[0] + '_' +
+            champs[0] + '.jpg" class="square-skin" id="teste" onClick="" "/>';
+        document.getElementById(usuario).insertAdjacentHTML('beforeend', str);
+    }
 }
 
 function searchSkin() {
@@ -91,7 +100,7 @@ function searchSkin() {
     }
 }
 $(document).ready(function () {
-    $("#busca").on("input", function () {       
+    $("#busca").on("input", function () {
         searchSkin();
     });
 });
