@@ -64,11 +64,11 @@ function SetMySkins() {
 
 function ShowMatchedSkins(usuario) {
     if (document.getElementById(usuario) !== null) {
-        var myDiv = document.getElementById(usuario);
-        myDiv.parentNode.removeChild(myDiv);
+        const myNode = document.getElementById("Matched");
+        myNode.innerHTML = '';
     }
 
-    var namestr = '<div id=' + usuario + '><p>' + usuario + '</p></div>';
+    var namestr = '<div class="skinsOf" id=' + usuario + '><p>Skins de ' + usuario + ':</p></div>';
     document.getElementById("Matched").insertAdjacentHTML('beforeend', namestr);
 
     for (let i = 0; i < matchedSkins.length; i++) {

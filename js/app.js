@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
 import { getDatabase, ref, set, get, child, update, remove }
   from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile }
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut }
   from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,8 +20,16 @@ const auth = getAuth(app);
 const db = getDatabase(app);
 
 var currentuser = sessionStorage.getItem('currentUser');
-if (currentuser !== null)
+if (currentuser !== null) {
   document.getElementById("userName").innerText = currentuser;
+  var myDiv = document.getElementById("loginPanel");
+  myDiv.parentNode.removeChild(myDiv);
+  var str = '<button id="sair">Sair</button>';
+  document.getElementById("accountPanel").insertAdjacentHTML('beforeend', str);
+}
+else {
+
+}
 console.log(currentuser);
 
 var nameInput = document.getElementById('user');
@@ -29,6 +37,8 @@ var addButton = document.getElementById('signup');
 var loginBtn = document.getElementById('login');
 var saveBtn = document.getElementById('salvar');
 var testeBTN = document.getElementById('match');
+if(document.getElementById('sair') !== null)
+  var sairBTN = document.getElementById('sair');
 
 
 //fazer login na conta
@@ -50,6 +60,16 @@ function login() {
       const errorMessage = error.message;
       console.log(errorCode + errorMessage);
     });
+}
+
+function logOut(){
+  console.log("entrou");
+  signOut(auth)
+    .then(() =>{
+      sessionStorage.removeItem("currentUser");
+      sessionStorage.removeItem("skinArray");
+      document.location.reload(true);
+    })
 }
 
 //salvar dados na DB
@@ -187,4 +207,7 @@ if (saveBtn !== null) {
 }
 if (testeBTN !== null) {
   testeBTN.addEventListener('click', getUserSkins);
+}
+if (sairBTN !== null) {
+  sairBTN.addEventListener('click', logOut);
 }

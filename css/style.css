@@ -6,7 +6,32 @@
 body{
     min-height: 100vh;
     overflow-x: hidden;
-    background-color: #05131C;
+    background-color: #030B10;
+}
+
+.header{
+    background-color: #111111;
+    width: 100%;
+
+    border-bottom: 2px solid #1A1A1A;
+}
+.campeoes{
+    color: #f9f9f9;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #111111;
+    padding-bottom: 25px;
+    padding-top: 26px;
+    margin-left: 30px;
+}
+.campeoes:hover{
+    border-bottom: 2px solid #0BC4E2;
+    cursor: pointer;
 }
 
 .champions-grid{
@@ -29,7 +54,7 @@ body{
 }
 .square-skin{
     opacity: 0.9;
-    border: 4px solid black;
+    border: 3px solid #1D2227;
     width: 190px;
     height: 320px;
     object-fit: cover;
@@ -41,9 +66,9 @@ body{
 }
 .square-skin:focus{
     opacity: 1;
-    border: 6px solid #4CAF50;
-    width: 200px;
-    height: 330px;
+    border: 4px solid #4CAF50;
+    width: 190px;
+    height: 320px;
     object-fit: cover;
     object-position: center;
     margin-left: 4px;
@@ -64,6 +89,7 @@ body{
     padding-bottom: 5px;
     margin-left: 4px;
     margin-right: 4px;
+    cursor: pointer;
 }
 .add{
     margin-top: 15px;
@@ -81,7 +107,13 @@ body{
     cursor: pointer;
 }
 .addInput{
-    padding: 10px 70px;
+    margin-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 450px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 50px;
 }
 #match{
     margin-top: 15px;
@@ -97,4 +129,109 @@ body{
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+}
+.userSelect{
+    width: 40%;
+    margin: auto;
+}
+#accountPanel{
+    float: right;
+    margin-right: 50px;
+    margin-top: 16px;
+}
+#accountPanel #sair{
+    margin-top: 12px;
+}
+.login{
+    font-family: "FF Mark W05",Arial,sans-serif;
+    font-size: 14px !important;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-right: 15px;
+}
+.login:hover{
+    cursor: pointer;
+}
+.createAccount{
+    font-family: "FF Mark W05",Arial,sans-serif;
+    font-size: 14px !important;
+    font-weight: bold;
+    background-color: #0BC4E2;
+    border: none;
+    color: white;
+    margin-right: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.createAccount:hover{
+    cursor: pointer;
+}
+#sair{
+    font-family: "FF Mark W05",Arial,sans-serif;
+    font-size: 14px !important;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-right: 15px;
+}
+#sair:hover{
+    cursor: pointer;
+}
+.logo{
+    color: white;
+    margin-left: 50px;
+    font-family: "FF Mark W05",Arial,sans-serif;
+    font-size: 18px !important;
+    font-weight: bold;
+    padding-right: 30px;
+    border-right: 1px solid white;
+}
+#userName{
+    font-family: "FF Mark W05",Arial,sans-serif;
+    font-size: 14px !important;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-right: 15px;
+}
+#busca{
+    color: white;
+    
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    border-color: #765827;
+    background-color: #000407;
+}
+::placeholder{
+    color: white;
+}
+.skins-handler{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.searchPanel{
+    margin-left: 160px;
+}
+#usersInTeam{
+    margin-left: 160px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.skinsOf{
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-family: "FF Mark W05",Arial,sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
