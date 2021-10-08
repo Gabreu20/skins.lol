@@ -92,7 +92,7 @@ function ShowMatchedSkins(usuario) {
         console.log(champs);
 
         var str = '<input type="image" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + champStats[0] + '_' +
-            champs[0] + '.jpg" class="square-skin" id="teste" onClick="" "/>';
+            champs[0] + '.jpg" class="square-skin-compared" id="teste" onClick="" "/>';
         document.getElementById(usuario).insertAdjacentHTML('beforeend', str);
     }
 }

@@ -22,18 +22,20 @@
   <div class="header">
     <a class="logo">SKINS.LOL</a>
     <button class="campeoes" onclick="window.location.href ='./champion.html';">Campeões</button>
-    <button id="salvar">Salvar</button>
     <div id="accountPanel">
       <button id="userName"></button>
       <div id="loginPanel" class="LoginPanel">
-        <button class="login" onclick="window.location.href ='./login.html'; sessionStorage.clear();">INICIAR SESSÃO</button>
-        <button class="createAccount" onclick="window.location.href ='./signup.html';">CRIAR CONTA</button>
+        <button class="login"
+          onclick="logged = 'false'; window.location.href ='./login.html'; sessionStorage.clear();">INICIAR
+          SESSÃO</button>
+        <button class="createAccount" onclick="logged = 'false'; window.location.href ='./signup.html';">CRIAR
+          CONTA</button>
       </div>
     </div>
   </div>
   <p id="currentUser"></p>
   <div class="userSelect">
-    <input id="time" class="addInput">
+    <input id="time" class="addInput" placeholder="NOME DO JOGADOR">
     <button class="add" id="addUser" onclick="addUser()">Add Jogador</button>
     <button id="match">Match</button>
   </div>
@@ -43,10 +45,10 @@
   <div class="searchPanel" style="display: inline-block;">
     <input id="busca" placeholder="Buscar Campeão">
   </div>
-  <div id="Skins" class="skins-handler">
-  </div>
   <div id="Matched" class="skins-handler">
 
+  </div>
+  <div id="Skins" class="skins-handler">
   </div>
   </div>
 

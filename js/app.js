@@ -35,7 +35,6 @@ console.log(currentuser);
 var nameInput = document.getElementById('user');
 var addButton = document.getElementById('signup');
 var loginBtn = document.getElementById('login');
-var saveBtn = document.getElementById('salvar');
 var testeBTN = document.getElementById('match');
 if(document.getElementById('sair') !== null)
   var sairBTN = document.getElementById('sair');
@@ -63,7 +62,8 @@ function login() {
 }
 
 function logOut(){
-  console.log("entrou");
+  selectedSkins = [];
+  logged = false;
   signOut(auth)
     .then(() =>{
       sessionStorage.removeItem("currentUser");
@@ -74,7 +74,7 @@ function logOut(){
 
 //salvar dados na DB
 function InsertData() {
-  if (nameInput.value !== "") {
+  if (nameInput.value !== "" && !nameInput.value.includes("|") && !nameInput.value.includes("adm")) {
     const dbref = ref(db);
     get(child(dbref, "accounts/" + nameInput.value)).then((snapshot) => {
       if (!snapshot.exists()) {
@@ -103,7 +103,7 @@ function InsertData() {
                 const user = userCredential.user;
                 console.log("Criou");
                 console.log(user);
-                window.location.href = './login.html';
+                setTimeout(goToLoginPage, 300);
               })
               .catch((error) => {
                 const errorCode = error.code;
@@ -183,15 +183,24 @@ function getUserSkins() {
 
 //Atualizar dados da DB
 function UpdateData() {
-  update(ref(db, "accounts/" + currentuser), {
-    Skins: selectedSkins
-  })
-    .then(() => {
-      alert("Salvo!")
+}
+
+if(document.URL.includes("index.html")){
+  if(logged){
+    update(ref(db, "accounts/" + currentuser), {
+      Skins: selectedSkins
     })
-    .catch((error) => {
-      alert("Erro" + error);
-    });
+      .then(() => {
+        //alert("Salvo!")
+      })
+      .catch((error) => {
+        //alert("Erro" + error);
+      });
+  }
+}
+
+function goToLoginPage(){
+  window.location.href = './login.html';
 }
 
 //listener dos botoes
@@ -201,9 +210,6 @@ if (loginBtn !== null) {
 }
 if (addButton !== null) {
   addButton.addEventListener('click', InsertData);
-}
-if (saveBtn !== null) {
-  saveBtn.addEventListener('click', UpdateData);
 }
 if (testeBTN !== null) {
   testeBTN.addEventListener('click', getUserSkins);

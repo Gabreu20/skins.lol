@@ -1,12 +1,12 @@
 var userInTeam = [];
 function addUser() {
     userInTeam.push(document.getElementById('time').value);
-    var str = '<div onclick="deleteUser(this.id);" class="usersT" id="' + '' + document.getElementById('time').value + 'user">' + document.getElementById('time').value + ' x ' + '</div>';
+    var str = '<div onclick="deleteUser(this.id);" class="usersT" id="' + '' + document.getElementById('time').value + '|user">' + document.getElementById('time').value + ' x ' + '</div>';
     document.getElementById("usersInTeam").insertAdjacentHTML('beforeend', str);
     console.log(userInTeam);
 }
 function deleteUser(id) {
-    var user = id.split("u");
+    var user = id.split("|");
     var del = user[0];
     console.log(user);
     if (document.getElementById(id) !== null) {
