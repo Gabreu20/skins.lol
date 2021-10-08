@@ -18,17 +18,29 @@ function SelectedSkinToCompare(id) {
 function matchSkins(usuario) {
     matchedSkins = [];
     //var skinPattern = getSkinData(skinToCompare[0]);
-    var PROJETO = skinToCompare[0].indexOf("PROJETO") > -1;
-    var VO = skinToCompare[0].indexOf("Velho Oeste") > -1;
-    console.log(PROJETO);
+    //var PROJETO = skinToCompare[0].indexOf("PROJETO") > -1;
+    //var VO = skinToCompare[0].indexOf("Velho Oeste") > -1;
+    //console.log(PROJETO);  
+    var typeSkinSTR1 = skinToCompare[0].split("|");
+    var typeSkin1 = typeSkinSTR1[1].split("_");
+    console.log(typeSkin1[0]);
+    var typeSkingroup1 = skinToCompare[0].split(typeSkin1[0]);
+    console.log(typeSkingroup1[0]);
     for (let j = 0; j < dbArray.length; j++) {
         //var skinPattern2 = getSkinData(dbArray[j]);
-        var PROJETO2 = dbArray[j].indexOf("PROJETO") > -1;
-        var VO2 = dbArray[j].indexOf("Velho Oeste") > -1;
-        console.log(PROJETO2);
+        //var PROJETO2 = dbArray[j].indexOf("PROJETO") > -1;
+        //var VO2 = dbArray[j].indexOf("Velho Oeste") > -1;
+        //console.log(PROJETO2);
+        /*
         if (PROJETO && PROJETO2 || VO && VO2) {
             matchedSkins.push(dbArray[j]);
         }
+        */
+       var typeSkingroup2 = dbArray[j].indexOf(typeSkingroup1[0]);
+       console.log(typeSkingroup2);
+       if(typeSkingroup2 > -1){
+            matchedSkins.push(dbArray[j]);
+       }
     }
     console.log(matchedSkins);
     ShowMatchedSkins(usuario);

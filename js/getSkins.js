@@ -9,7 +9,7 @@ function setSkinObjs() {
     //const champName = document.title;
     window.setTimeout(setBackgroundImage, 100);
     jQuery.getJSON('https://ddragon.leagueoflegends.com/api/versions.json', function (version) {
-        jQuery.getJSON('https://ddragon.leagueoflegends.com/cdn/' + version[0] + '/data/pt_BR/champion/' + champName + '.json', function (data) {
+        jQuery.getJSON('https://ddragon.leagueoflegends.com/cdn/' + version[0] + '/data/en_US/champion/' + champName + '.json', function (data) {
             document.getElementById("name").innerText = data.data[champName].name;
             document.getElementById("desc").innerText = data.data[champName].title;
             var count = Object.keys(data.data[champName].skins).length;
