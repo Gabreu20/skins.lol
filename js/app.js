@@ -24,7 +24,7 @@ if (currentuser !== null) {
   document.getElementById("userName").innerText = currentuser;
   var myDiv = document.getElementById("loginPanel");
   myDiv.parentNode.removeChild(myDiv);
-  var str = '<button id="sair">Sair</button>';
+  var str = '<button id="ENCERRAR SESSÃO">Sair</button>';
   document.getElementById("accountPanel").insertAdjacentHTML('beforeend', str);
 }
 else {
